@@ -54,8 +54,6 @@ class FilamentTourWidget extends Component
         }
 
         foreach ($classesUsingHasTour as $class) {
-            $class = 'App\Filament\Resources\AbsenceResource\Pages\ListAbsences';
-
             if ($request['pathname'] == '/') {
                 $class = 'App\Filament\Pages\Dashboard';
             } else if ($request['pathname'] == '/schools') {
