@@ -60,14 +60,16 @@ class FilamentTourWidget extends Component
                 $class = 'App\Filament\Resources\SchoolResource\Pages\ListSchools';
             } else if (strpos($request['pathname'], "edit") !== false && strpos($request['pathname'], "schools") !== false) {
                 $class = 'App\Filament\Resources\SchoolResource\Pages\EditSchool';
-            } else if (strpos($request['pathname'], "edit") !== false && strpos($request['pathname'], "school-classes") !== false) {
-                $class = 'App\Filament\Resources\SchoolClassResource\Pages\EditSchoolClass';
             } else if ($request['pathname'] == '/school-classes') {
                 $class = 'App\Filament\Resources\SchoolClassResource\Pages\ListSchoolClasses';
+            } else if (strpos($request['pathname'], "edit") !== false && strpos($request['pathname'], "school-classes") !== false) {
+                $class = 'App\Filament\Resources\SchoolClassResource\Pages\EditSchoolClass';
             } else if (strpos($request['pathname'], "edit") !== false && strpos($request['pathname'], "students") !== false) {
                 $class = 'App\Filament\Resources\StudentResource\Pages\EditStudent';
+            } else {
+                $class = '';
             }
-
+            
             $this->tours = array_merge($this->tours, (new $class())->constructTours($class, $request));
         }
 
